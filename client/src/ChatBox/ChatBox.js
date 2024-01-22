@@ -4,7 +4,6 @@ import ChatMain from './Chat/ChatMain';
 
 
 const ChatBox = () => {
-    //console.log("[ChatBox] > <ChatMain />")
     return (
     <div>
         <ChatMain />

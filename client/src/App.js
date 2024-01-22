@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import ChatBox from "./ChatBox/ChatBox";
 import { connectSocketServer, removeSession } from "./Socket/SocketConn";
-import Recoder from "./Recoder/Recoder";
 import { useDispatch } from "react-redux";
 import { removeConversations, setConversations } from "./ChatBox/chatBoxSlice";
 
@@ -29,7 +28,6 @@ export default function App() {
 
   return (
     <div>
-      {/* <Recoder /> */}
       <ChatBox /> 
     </div>
   )

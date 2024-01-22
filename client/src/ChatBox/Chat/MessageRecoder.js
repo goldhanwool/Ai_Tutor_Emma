@@ -1,12 +1,9 @@
 import { ReactMediaRecorder } from 'react-media-recorder'
-// import { RecordIcon } from './RecordIcon' //jsx 파일만 가능
-// import { BsChatLeft } from "react-icons/bs";
 import '../ChatBox.css'
 import { useSelector } from 'react-redux';
 
 const RecoderMessage = ({handleStop}) => {
   const inputStopStaus = useSelector((state) => state.chatBox.inputStop);
-
 
   return (
     <div className='chat_voice_container'>

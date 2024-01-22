@@ -3,6 +3,7 @@ from starlette.config import Config
 config = Config('.env')
 
 ELEVEN_LABS_API_KEY = config("ELEVEN_LABS_API_KEY")
+VOICE_RACHEL = config("ELEVEN_LABS_VOICE")
 
 #ELEVEN_LABS
 async def convert_text_to_speech(message):
@@ -18,8 +19,7 @@ async def convert_text_to_speech(message):
         }
 
         #Define voice
-        voice_rachel = "21m00Tcm4TlvDq8ikWAM"
-        #voice_rachel = "2EiwWnXFnvU5JabPnv8n" #Clyde
+        voice_rachel = VOICE_RACHEL
 
         #Constructing Headers and Endpoint
         headers = {
@@ -29,10 +29,6 @@ async def convert_text_to_speech(message):
             }
 
         endpoint = f"https://api.elevenlabs.io/v1/text-to-speech/{voice_rachel}"
-
-        # send request
-        #print("\n+----------------------CALL ELEVEN_LABS API-----------------------+")
-        #print('')
 
         response = requests.post(endpoint, json=body, headers=headers)
         

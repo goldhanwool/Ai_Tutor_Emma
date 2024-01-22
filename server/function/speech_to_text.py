@@ -17,9 +17,8 @@ async def convert_speech_to_text(file_path):
                 raise ConnectionRefusedError(f"Whisper-1 API Error {e}")
 
         message_decoded = await convert_audio_to_text(audio_input)
-            #Check data value
+        #Check data value
         if not message_decoded:
             raise ConnectionRefusedError(f"Not message_decoded")
         
-        #print(f"\n[upload_file] > message_decoded['text']: ", message_decoded['text'])
         return message_decoded['text'] # { "text": "Hello" }

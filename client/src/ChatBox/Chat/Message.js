@@ -22,7 +22,6 @@ const SlowText = (props) => {
 }
 
 const Message = ({ content, aiMessage, animate }) => {
-    //console.log("[Message] > ({ content, aiMessage, animate }): ", content, aiMessage, animate)
     return (
       <div>
           {aiMessage ? ( 
@@ -32,7 +31,6 @@ const Message = ({ content, aiMessage, animate }) => {
                 </div>
                 <div className='chat_message_box'>
                     <div className="chat_message_design">
-                        {/* <span>{content}</span> */}
                         <SlowText speed={10} text={content} />
                     </div>              
                 </div>

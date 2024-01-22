@@ -1,14 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-//conversations 데이터 구조
-// [{ 
-//     id: "bd579cf7-15d0-4333-8569-cd432d3bacce", 
-//     messages: [{id: "27c814fe-163f-4355-b593-6cee3766d703", content: "hello", aiMessage: false}]
-// },
-//  { 
-//     id: "bd579cf7-15d0-4333-8569-cd432d3bacce", 
-//     messages: [{id: "27c814fe-163f-4355-b593-6cee3766d703", content: "hello", aiMessage: false}]
-// }]
 const initialState = {
     sessionEstablished: false,
     conversations: [], 
@@ -26,7 +17,6 @@ const chatBoxSlice = createSlice({
         },
         addMessage: (state, action) => {
             const { message, conversationId } = action.payload;
-            //message => {id: "27c814fe-163f-4355-b593-6cee3766d703", content: "hello", aiMessage: false}
 
             const conversation = state.conversations.find(
                 (item) => item.id === conversationId
@@ -41,13 +31,11 @@ const chatBoxSlice = createSlice({
                 });
             }
         },
-        setConversations: (state, action) => { 
-            //console.log("[chatBoxSlice] > setConversations > action.payload: ", action.payload)
+        setConversations: (state, action) => {
             state.conversations = action.payload;
             state.sessionEstablished = true;  
         },
         setConversationHistory: (state, action) => {
-            //console.log("[chatBoxSlice] > setConversationHistory > action.payload: ", action.payload)
             const { id, messages } = action.payload;
 
             const conversation = state.conversations.find(

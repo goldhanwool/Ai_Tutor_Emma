@@ -12,10 +12,9 @@ const ChatMain = () => {
     if (!chatId) {
         const conversationId = uuid();
         dispatch(setSelectedConversationId(conversationId));
-        //console.log(`[ChatMain] > new chatId: ${conversationId}`);
-    } else {
-        
-        //console.log(`[ChatMain] > chatId: ${chatId}`);
+        console.log(`[ChatMain] > new chatId: ${conversationId}`);
+    } else {  
+        console.log(`[ChatMain] > chatId: ${chatId}`);
     }
 
     return (

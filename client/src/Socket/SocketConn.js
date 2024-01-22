@@ -1,25 +1,17 @@
 import io from 'socket.io-client';
 import { store } from '../store'
 import { setInputStop, setConversationHistory, setConversations } from '../ChatBox/chatBoxSlice';
-import Recoder from '../Recoder/Recoder';
-import { useState } from 'react';
+
 
 let socket;
-const serverUrl = process.env.REACT_APP_SOCKET_SERVER_URL
-//const serverUrl = "https//:magh.store"
 const localUrl = "http://localhost:8000"
 
 export const connectSocketServer = () => {
 
-    socket = io(`${serverUrl}`);
-    //console.log(`Connecting to server...`);
+    socket = io(`${localUrl}`);
     socket.on('connect', () => {
         console.log(`...>> Connected to Socket server Id -> ${socket.id}`);
         const socketId = socket.id;
-        // store.dispatch(removeConversations())
-        // socket.emit('session-remove', {
-        //     sessionId: localStorage.getItem('sessionId'),
-        // });
 
         // server session check 
         socket.emit('session-history', {
@@ -27,7 +19,8 @@ export const connectSocketServer = () => {
         });
 
         socket.on('session-details', (data) => {
-            console.log(`....>> [Socket session-details] -> ${data}`); 
+            console.log(`....>> [Socket session-details] -> ${data}`);
+             
             //!주의! data는 string이다. Json.parse를 해줘야한다. 
             const { sessionId, conversations } = JSON.parse(data);
             console.log(`....>> [Socket session-details] -> ${sessionId}`);
@@ -46,7 +39,6 @@ export const connectSocketServer = () => {
         //    },
         // ]
         socket.on('server-message', (data) => { //오디오 파일도 같이 들어와야함. 
-            //console.log(`....>> [Socket message] -> ${data}`); //string
             store.dispatch(setConversationHistory(JSON.parse(data)));
         });
 
@@ -62,14 +54,13 @@ export const connectSocketServer = () => {
             audio.play();
         });
         socket.on('reponse-remove-session', (data) => {
-            //console.log(`....>> [Socket reponse-remove-session] -> ${data}`); //string
+            console.log(`....>> [Socket reponse-remove-session] -> ${data}`); 
         });
 
     });
 }
 
 export const sendMessageToBackend = (message, conversationId) => {
-    //console.log(`....>> [Sending message to server] > Id: ${conversationId}, message: ${message}`);
     socket.emit('client-message', {
         sessionId: localStorage.getItem('sessionId'),
         message, 
@@ -78,7 +69,6 @@ export const sendMessageToBackend = (message, conversationId) => {
 }
 
 export const removeSession = () => {
-    //console.log(`....>> [removeSession] `);
     socket.emit('remove-session', {
         sessionId: localStorage.getItem('sessionId'),
     });
@@ -88,7 +78,6 @@ export const removeSession = () => {
 }
 
 export const sendFileToServer = (conversationId, file) => {
-    //console.log(`....>> [sendFileToServer] ${file}`);
     store.dispatch(setInputStop(true));
 
     socket.emit('upload-file', {

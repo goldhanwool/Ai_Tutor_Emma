@@ -10,8 +10,7 @@ const MessageInput = () => {
     const selectedConversationId = useSelector((state) => state.chatBox.selectedConversationId);
 
     const conversations = useSelector((state) => state.chatBox.conversations);
-    //console.log("[MessageInput] > conversations: ", conversations)
-    
+
     //for disable input field
     const selectedConversation = conversations.find(
         (item) => item.id === selectedConversationId
@@ -25,15 +24,6 @@ const MessageInput = () => {
             animate: false,
         };
 
-        // Message Obj
-        // {
-        //     "id": "3affdd91-6849-42f4-ac8f-67dd828b1d79",
-        //     "content": "hello",
-        //     "aiMessage": false,
-        //     "animate": false
-        // }
-        //console.log("[MessageInput] > proceedMessage > selectedConversationId, message: ", selectedConversationId, message)
-        
         // save message to redux store
         let conversationId;
         
@@ -55,13 +45,6 @@ const MessageInput = () => {
         setContent("");
     }
 
-    // // 만약 메세지 보내기 버튼이 있다면 아래 함수 활용
-    // const handleSendMessage = () => {
-    //     if (content.length > 0) {
-    //         proceedMessage();
-    //     }
-    // }
-
     const handleKeyPressed = (event) => {
         if (event.code === "Enter" && content.length > 0) {
             proceedMessage();
@@ -71,12 +54,6 @@ const MessageInput = () => {
     return (
         <div className='chat_input_container'>
           <div className='chat_input_container_inner'>
-            {/* <button className="chat_change_button panel-item btn-icon add-file-button">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <line x1="22" y1="2" x2="11" y2="13"></line>
-                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                </svg>
-            </button> */}
             {/* <!-- 메시지 입력 필드 --> */}
             <input 
               className="chat_input_area panel-item" 

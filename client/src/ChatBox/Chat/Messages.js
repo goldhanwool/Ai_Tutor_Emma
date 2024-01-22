@@ -6,16 +6,8 @@ import { removeSession, sendFileToServer } from '../../Socket/SocketConn';
 import RecoderMessage from './MessageRecoder';
 
 
-const Messages = ({ content, aiMessage, animate, chatId }) => {
-    // const conversation = {
-    //     id: "1",
-    //     messages: [{
-    //         id: "1",
-    //         content: "Hello",
-    //         aiMessage: true,
-    //         animate: false
-    //     }]
-    // }
+const Messages = () => {
+
     const { selectedConversationId, conversations } = useSelector(
         (state) => state.chatBox
     );
@@ -47,7 +39,6 @@ const Messages = ({ content, aiMessage, animate, chatId }) => {
             sendFileToServer(conversationId, arrayBuffer);
         }
     }
-
     const [isVoiceBtn, setIsVoiceBtn] = useState(false);
     const handleReset = () => { 
         alert("Reset Conversation");
