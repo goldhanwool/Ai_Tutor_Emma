@@ -30,7 +30,7 @@ sio = socketio.AsyncServer(cors_allowed_origins=[], async_mode='asgi')
 socket_app = socketio.ASGIApp(sio)
 
 
-@app.route("/")
+@app.get("/")
 async def root():
     return "Health Check"
 
