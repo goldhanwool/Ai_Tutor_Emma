@@ -1,0 +1,370 @@
+@import url('https://fonts.googleapis.com/css?family=Red+Hat+Display:400,500,900&display=swap');
+
+body{
+    background-size: cover;
+}
+
+/* 전체 채팅  */
+#chat_container {
+	background: rgba(10, 14, 14, 0.95);
+	max-width: 600px;
+    margin: 25px auto;
+	box-sizing: border-box;
+	padding: 1.5em;
+	border-radius: 12px;
+	position: relative;
+	overflow: hidden;
+}
+
+#chat_container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(https://images.unsplash.com/photo-1495808985667-ba4ce2ef31b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80) fixed;
+    z-index: -1;
+}
+
+.chat_container_inner {
+	height: calc(100vh - 55px - 2em - 25px * 2 - .5em - 3em);
+	overflow: auto;
+    width: 100%;
+    margin: auto;
+    /* background-color: aqua; */
+    display: block;
+}
+
+.chat_message_block {
+    width: 100%;
+    display: flex;
+    margin-top: 15px;
+}
+
+.chat_person_avatar {
+    height: 35px;
+    width: 35px;
+    overflow: hidden;
+    border-radius: 50%;
+    user-select: none;
+    -ms-user-select: none;
+	position: relative;
+}
+
+.reversed {
+    flex-direction: row-reverse;
+}
+
+/* 프로필 */
+.chat_person_avatar img {
+	height: 100%;
+	width: auto;
+}
+
+.chat_person_avatar::before {
+	content: "";
+	position: absolute;
+	height: 100%;
+	width: 100%;
+}
+
+/* 메세지 */
+.chat_message_box {
+	max-width: 55%;
+}
+
+.chat_message_design span {
+    width: fit-content;
+    display: inline-table;
+    word-wrap: break-word;
+    background: #14181a;
+    font-size: 13px;
+    color: #a3a3a3;
+    padding: .5em 1.2em;
+    line-height: 1.5;
+    margin-left: 10px;
+    border-radius: 6px;
+    font-family: 'Lato', sans-serif;
+}
+
+.chat_message_design span:not(:last-child) {
+    margin: 0 0 .3em;
+}
+
+/* 텍스트 박스 */
+.chat_input_container {
+    background: #131719;
+    border-radius: 12px;
+    padding: 0 1em;
+    height: 55px;
+    margin: .5em 0 0;
+}
+
+.chat_input_container_inner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+}
+
+.chat_input_container_inner .panel-item:not(:last-child) {
+    margin: 0 1em 0 0;
+}
+
+.chat_input_area {
+    width: 100%;
+    height: 100%;
+    outline: none;
+    position: relative;
+    color: #a3a3a3;
+    font-size: 13px;
+    background: transparent;
+    border: 0;
+    font-family: 'Lato', sans-serif;
+    resize: none;
+}
+
+.header_nav {
+    /* background: gold; */
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* 휴지통 */
+.remove_button {
+    height: 40px;
+    width: 40px;
+    border: 0;
+    padding: 0;
+    outline: none;
+    cursor: pointer;
+    background: #141316;
+    border-radius: 50%;
+}
+
+.btn_icon_remove {
+    position: relative;
+    cursor: pointer;
+}
+
+.btn_icon_remove svg {
+	stroke: #FFF;
+	fill: #FFF;
+	width: 40%;
+	height: auto;
+	position: absolute;
+	top: 53%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+/* 녹음-텍스트 변경 버튼 */
+.chat_change_button {
+    background: grey;
+    height: 20px;
+    width: 30px;
+    border: 0;
+    padding: 0;
+    outline: none;
+    cursor: pointer;
+}
+
+.btn_icon_text {
+	position: relative;
+	cursor: pointer;
+}
+
+.btn_icon_voice {
+	position: relative;
+	cursor: pointer;
+}
+
+.btn_icon_text svg {
+	stroke: #FFF;
+	fill: #FFF;
+	width: 50%;
+	height: auto;
+	position: absolute;
+	top: 53%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.btn_icon_voice svg {
+	stroke: #FFF;
+	fill: #FFF;
+	width: 70%;
+	height: auto;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.add-file-button {
+    height: 23px;
+    min-width: 23px;
+    width: 23px;
+    background: #8147fc;
+    border-radius: 50%;
+}
+
+.add-file-button svg {
+    width: 70%;
+    stroke: #54575c;
+    margin-top: 1px;
+}
+
+.tv_change_button {
+    height: 30px;
+    min-width: 30px;
+    width: 30px;
+    background: #ac99d4;
+    border-radius: 50%;
+}
+
+/* 이모지 */
+.emoji-button {
+    min-width: 23px;
+    width: 23px;
+    height: 23px;
+    background: transparent;
+    border-radius: 50%;
+}
+
+.emoji-button svg {
+    width: 100%;
+    fill: transparent;
+    stroke: #54575c;
+}
+
+.send-message-button {
+    background: #8147fc;
+    height: 30px;
+    min-width: 30px;
+    border-radius: 50%;
+    transition: .3s ease;
+}
+
+.send-message-button:active {
+    transform: scale(.97);
+}
+
+.send-message-button svg {
+    margin: 1px -1px;
+}
+
+.overlay {
+    background: #ffffff;
+    color: #666666;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 5000;
+    top: 0;
+    left: 0;
+    float: left;
+    text-align: center;
+    padding-top: 25%;
+    opacity: .80;
+  }
+
+.spinner {
+    margin: 0 auto;
+    height: 64px;
+    width: 64px;
+    animation: rotate 0.8s infinite linear;
+    border: 5px solid firebrick;
+    border-right-color: transparent;
+    border-radius: 50%;
+}
+
+/* 녹음 */
+.chat_voice_container {
+    border-radius: 12px;
+    padding: 0 1em;
+    height: 55px;
+    margin: .5em 0 0;
+}
+    
+.chat_voice_container_inner {
+    /* background-color: gold; */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 0.5em;
+    text-align: center;
+    border-radius: 12px;
+}    
+
+.record_status_text {
+    color: #FFF;
+}
+
+/*녹음버튼 */
+.audio_ready_button {
+    background: rgb(142, 118, 193);
+    border-radius: 5%; /* 원형 버튼 */
+    width: 100px; /* 버튼 크기 */
+    height: 50px; /* 버튼 크기 */
+    display: flex; /* Flexbox를 사용한 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+    justify-content: center; /* 가로 중앙 정렬 */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+    cursor: pointer; /* 마우스 오버 시 커서 변경 */
+    border: none; /* 테두리 없음 */
+    outline: none; /* 클릭 시 윤곽선 없음 */
+    position: relative; /* 아이콘 위치를 위한 상대 위치 설정 */
+  }
+ 
+/* background: #8147fc; */
+.audio_recoder_button {
+    background: #8147fc;
+    border-radius: 5%; /* 원형 버튼 */
+    width: 100px; /* 버튼 크기 */
+    height: 50px; /* 버튼 크기 */
+    display: flex; /* Flexbox를 사용한 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+    justify-content: center; /* 가로 중앙 정렬 */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+    cursor: pointer; /* 마우스 오버 시 커서 변경 */
+    border: none; /* 테두리 없음 */
+    outline: none; /* 클릭 시 윤곽선 없음 */
+    position: relative; /* 아이콘 위치를 위한 상대 위치 설정 */
+}
+
+.audio_button::before {
+    content: ''; /* 가상 요소의 내용 */
+    display: block; /* 블록 레벨 요소 */
+    width: 0; 
+    height: 0; 
+    border-style: solid; /* 삼각형을 만들기 위한 테두리 스타일 */
+    /* border-width: 5px 0 5px 10px; 삼각형 모양 정의 */
+    border-color: transparent transparent transparent white; /* 삼각형 색상 (한쪽 테두리만 색상 지정) */
+    position: absolute; /* 상위 요소(.button)에 대해 절대 위치 */
+    top: 50%; /* 상위 요소 중앙에 위치 */
+    left: 50%; /* 상위 요소 중앙에 위치 */
+    transform: translate(-50%, -50%); /* 중앙 정렬을 위한 변환 */
+    pointer-events: none; /* 가상 요소로 인한 클릭 이벤트 방지 */
+    margin-left: 1px;
+}
+
+
+@media only screen and (max-width: 600px) {
+#chat_container {
+margin: 0;
+border-radius: 0;
+}
+.chat_container_inner {
+    height: calc(100vh - 55px - 2em - .5em - 3em);
+}
+.chat__conversation-board__message__options {
+    display: none !important;
+}
+}
+
+
+  
