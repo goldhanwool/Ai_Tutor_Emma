@@ -29,7 +29,7 @@ const MessageInput = () => {
         
         if (!selectedConversationId) {
             conversationId = uuid();
-            dispatch(setSelectedConversationId({conversationId})); //id의 key를 확인해봐
+            dispatch(setSelectedConversationId({conversationId})); 
         } else {
             conversationId = selectedConversationId;
         }
