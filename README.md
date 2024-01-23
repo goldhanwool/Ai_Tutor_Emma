@@ -8,11 +8,14 @@ This project is to make AI English teacher Emma, which is made by connecting GPT
 ![Alt text](/server/upload/chat_text.png)
 ![Alt text](/server/upload/chat_audio.png)
 
+## Discription
+AI Tutor Emma is a conversational English chat service utilizing GPT technology. It's tuned specifically for English learning prompts and offers features like voice chatting through recording and text-based chatting.
 
 ## Environment Variables
 
 1. Create a file named `.env` in your root directory.
 2. An OpenAI API key and an Eleven Labs API key are required.
+
 
 ## Frontend: React
 
