@@ -5,6 +5,9 @@ This project is to make AI English teacher Emma, which is made by connecting GPT
 - BackEnd : ***FastAPI***
 - Library : **Redux**, **Socket.IO**
 
+![Alt text](/server/upload/chat_audio.png)
+
+
 ## Environment Variables
 
 1. Create a file named `.env` in your root directory.
