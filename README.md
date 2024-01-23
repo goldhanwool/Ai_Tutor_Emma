@@ -3,7 +3,7 @@
 This project is to make AI English teacher Emma, which is made by connecting GPT.
 - FrontEnd : ***React***
 - BackEnd : ***FastAPI***
-- Library : **Redux**, **Socket.IO**
+- Library : ***Redux***, ***Socket.IO***
 
 ![Alt text](/server/upload/chat_audio.png)
 
@@ -19,15 +19,16 @@ This project is to make AI English teacher Emma, which is made by connecting GPT
 - Ensure Node.js is installed.
 - Install dependencies with `npm install`.
 - Start the development server with `npm start`.
+- Access the browser at localhost:3000.
 
 ### Structure
 - `src/`: Source files for React components.
-  + `ChatBox/`: Components that send and receive messages
+  + `ChatBox/`: Components that send and receive messages.
     + `Chat/`
         + `ChatBox.css`:
         + `ChatBox.js`:
         + `ChatBoxSlice.js`:
-  + `Socket/`: Socket communication
+  + `Socket/`: Socket communication.
     + `SocketConn.js`
   + `App.js`
 - `public/`: Static assets.
