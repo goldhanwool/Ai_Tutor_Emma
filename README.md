@@ -53,7 +53,3 @@ This project is to make AI English teacher Emma, which is made by connecting GPT
 - Link: [ChatGPT Clone with React, SocketIO and OpenAI API 2023][udemy_link]
 
 [udemy_link]: https://www.udemy.com/course/chatgpt-with-react-and-openai-api-2023-build-your-own-app/
-
-- Link: [ChatGPT AI Voice Chatbot Build with React and FAST API Combo][udemy_link]
-
-[udemy_link]: https://www.udemy.com/course/chatgpt-ai-voice-chatbot-build-with-react-and-fast-api-combo/
